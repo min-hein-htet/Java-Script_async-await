@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Async/Await Function </h1>
+    <hr>
+    <h3> Display Coffee List </h3>
+    <hr>
+    <script>
+
+        const url="./database/items.json"
+
+        async function getAllItems(){
+            const data=await fetch(url)
+            const res=await data.json()
+
+            items=res['items']
+            
+            const coffee_list=items.filter((item)=>item.category=='coffee')
+
+            coffee_list.forEach((item)=>{
+
+                 console.log("----------------")
+                 console.log(" Id : ",item.id)
+                 console.log(" Category : ",item.category)
+                 console.log(" Name : ",item.name)
+                 console.log(" Price :",item.price)
+                 console.log("----------------")
+            })
+
+            
+        }
+
+        getAllItems()
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Async await Exercise</h1>
+    <hr>
+    <script>
+
+        const url="./database/products.json"
+
+        async function getAllItems(){
+            const data=await fetch(url)
+            const res=await data.json()
+
+            products=res['products']
+            products.forEach((p)=>{
+
+                console.log ("Id:", p.id)
+                console.log ("Category:", p.category)
+                console.log ("Name:", p.name)
+                console.log ("Price:", p.price)
+            })}
+
+
+            console.log("--- all product list ----- ")
+            getAllItems()
+
+              
+             
+            async function getClothes(){
+            const data=await fetch(url)
+            const res=await data.json()
+
+            items=res['products']
+            const clothes_list=items.filter((item)=>item.category=='clothes')
+
+            clothes_list.forEach((item)=>{
+
+                 console.log("----------------")
+                 console.log(" Id : ",item.id)
+                 console.log(" Category : ",item.category)
+                 console.log(" Name : ",item.name)
+                 console.log(" Price :",item.price)
+                 console.log("----------------")
+            })}
+
+
+            console.log(" --- clothes list ----- ")
+            getClothes()
+            
+            
+
+           
+        
+
+        /*
+        async function getAllItems(){
+            const data=await fetch(url)
+            const res=await data.json()
+
+            items=res['items']
+            const name_list=items.map((items)=>items.name)
+        name_list.forEach((items)=>{
+            console.log(items)
+            
+             })}
+             getAllItems()
+
+
+       async function getAllItems(){
+       const data=await fetch(url)
+       const res=await data.json()
+
+       items=res['products']
+
+       const price_list=items.map((x)=>x.price)
+        const initValue=0;
+        const grandTotal=price_list.reduce((sum,num)=>sum=sum+num,initValue)
+
+        console.log ("grandTotal=", grandTotal )
+       }
+       getAllItems()
+
+
+       async function getAllItems(){
+       const data=await fetch(url)
+       const res=await data.json()
+
+       items=res['products']
+       console.log ("find Function Return object")
+        const rec=items.find((item)=>item.id==15)
+          console.log (rec)
+       }
+       getAllItems()
+
+
+       async function getAllItems(){
+       const data=await fetch(url)
+       const res2=await data.json()
+       items=res2['products']
+
+       console.log ("Some Function Return boolean")
+        const res3=items.some((item)=>item.id==25)
+          console.log (res)
+       }
+       getAllItems()
+
+
+       async function getAllItems(){
+       const data=await fetch(url)
+       const res=await data.json()
+       products=res['products']
+       
+       const categories=["shoes","bag", "clothes","accessories"]
+        console.log ("Sorted Categories")
+        const sorted_categories=categories.sort((a,b)=>b.localeCompare(a))
+
+            sorted_categories.forEach((categories)=>{
+                console.log(categories)
+               })}
+               getAllItems()
+
+
+       async function getAllItems(){
+       const data=await fetch(url)
+       const res=await data.json()
+       products=res['products']
+
+       const nums= 
+        console.log ("Sorted Price")
+        const sorted_nums=nums.sort((a,b)=>b-a)
+           
+            sorted_nums.forEach((num)=>{
+                console.log(num)
+            })
+        }
+        getAllItems()
+
+        */
+
+
+    </script>
+    
+</body>
+</html>
